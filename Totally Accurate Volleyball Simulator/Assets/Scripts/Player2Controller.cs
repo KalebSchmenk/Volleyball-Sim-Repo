@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class Player2Controller : MonoBehaviour
 {
     public Rigidbody2D rb;
     public float speed = 8f;
@@ -18,20 +18,20 @@ public class PlayerController : MonoBehaviour
         Debug.Log(JumpCooldownOn);
         Vector3 pos = transform.position;
 
-        if (Input.GetKey("w") && !JumpCooldownOn)
+        if (Input.GetKey("up") && !JumpCooldownOn)
         {
             rb.AddForce(transform.up * 250);
             JumpCooldownOn = true;
             JumpTimer = true;
         }
 
-        if (Input.GetKey("d"))
+        if (Input.GetKey("right"))
         {
             pos.x += speed * Time.deltaTime;
         }
 
 
-        if (Input.GetKey("a"))
+        if (Input.GetKey("left"))
         {
             pos.x -= speed * Time.deltaTime;
         }
@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
 
         if (JumpTimer)
         {
-            if(timeRemaining > 0)
+            if (timeRemaining > 0)
             {
                 timeRemaining -= Time.deltaTime;
             }
