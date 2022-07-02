@@ -6,7 +6,7 @@ public class VolleyballController : MonoBehaviour
 {
     public Rigidbody2D rb;
     
-    public MaxVelocity = 5;
+    public int MaxVelocity = 10;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,8 +21,10 @@ public class VolleyballController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector2 velocity = rb.velocity;
-        Debug.Log(velocity);
-        
+        if (rb.velocity.magnitude > MaxVelocity)
+        {
+            rb.velocity = Vector3.ClampMagnitude(rb.velocity, MaxVelocity);
+        }
+            
     }
 }
