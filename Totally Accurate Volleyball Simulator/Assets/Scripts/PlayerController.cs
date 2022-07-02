@@ -12,6 +12,13 @@ public class PlayerController : MonoBehaviour
 
     float timeRemaining = 4;
 
+    Animator animator;
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -37,6 +44,18 @@ public class PlayerController : MonoBehaviour
         }
 
         transform.position = pos;
+
+
+        animator.SetFloat("Jump", rb.velocity.magnitude);
+
+        if (Input.GetKey("a") || Input.GetKey("d"))
+        {
+            animator.SetFloat("Speed", 1);
+        }
+        else
+        {
+            animator.SetFloat("Speed", 0);
+        }
 
 
 

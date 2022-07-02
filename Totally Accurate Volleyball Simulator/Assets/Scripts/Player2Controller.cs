@@ -12,6 +12,13 @@ public class Player2Controller : MonoBehaviour
 
     float timeRemaining = 4;
 
+    Animator animator;
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -38,6 +45,17 @@ public class Player2Controller : MonoBehaviour
 
         transform.position = pos;
 
+
+        animator.SetFloat("Jump", rb.velocity.magnitude);
+
+        if (Input.GetKey("left") || Input.GetKey("right"))
+        {
+            animator.SetFloat("Speed", 1);
+        }
+        else
+        {
+            animator.SetFloat("Speed", 0);
+        }
 
 
         if (JumpTimer)

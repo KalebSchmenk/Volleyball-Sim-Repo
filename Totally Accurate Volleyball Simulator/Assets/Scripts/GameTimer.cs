@@ -8,7 +8,7 @@ using UnityEngine;
 public class GameTimer : MonoBehaviour
 {
 
-    float time = 5;
+    float time = 60;
 
     public TMP_Text timer;
 
