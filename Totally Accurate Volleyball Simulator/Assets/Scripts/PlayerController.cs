@@ -5,12 +5,19 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody2D rb;
-    public float speed = 8f;
+    public float speed = 0.01f;
 
     private bool JumpCooldownOn = false;
     private bool JumpTimer = false;
 
-    float timeRemaining = 3;
+    float timeRemaining = 4;
+
+    Animator animator;
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -20,7 +27,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey("w") && !JumpCooldownOn)
         {
-            rb.AddForce(transform.up * 5000);
+            rb.AddForce(transform.up * 3500);
             JumpCooldownOn = true;
             JumpTimer = true;
         }
@@ -39,6 +46,18 @@ public class PlayerController : MonoBehaviour
         transform.position = pos;
 
 
+        animator.SetFloat("Jump", rb.velocity.magnitude);
+
+        if (Input.GetKey("a") || Input.GetKey("d"))
+        {
+            animator.SetFloat("Speed", 1);
+        }
+        else
+        {
+            animator.SetFloat("Speed", 0);
+        }
+
+
 
         if (JumpTimer)
         {
@@ -50,7 +69,7 @@ public class PlayerController : MonoBehaviour
             {
                 JumpCooldownOn = false;
                 JumpTimer = false;
-                timeRemaining = 3;
+                timeRemaining = 4;
             }
         }
     }
