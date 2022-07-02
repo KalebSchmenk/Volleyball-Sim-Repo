@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey("w") && !JumpCooldownOn)
         {
-            rb.AddForce(transform.up * 250);
+            rb.AddForce(transform.up * 5000);
             JumpCooldownOn = true;
             JumpTimer = true;
         }
