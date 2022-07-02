@@ -22,13 +22,13 @@ public class RedScoreController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        redScore.text = "Red score = " + redScoreNumber;
+        redScore.text = "" + redScoreNumber;
     }
 
     // Update is called once per frame
     void Update()
     {
-        redScore.text = "Red score = " + redScoreNumber;
+        redScore.text = "" + redScoreNumber;
     }
 
     void OnCollisionEnter2D(Collision2D col)

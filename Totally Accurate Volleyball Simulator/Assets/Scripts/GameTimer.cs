@@ -55,7 +55,7 @@ public class GameTimer : MonoBehaviour
             {
                 EndGame();
             }
-            timer.text = "Time left   " + time.ToString("0");
+            timer.text = "Time left  " + time.ToString("0");
         }
     }
 

@@ -22,13 +22,13 @@ public class BlueScoreController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        blueScore.text = "Blue score = " + blueScoreNumber;
+        blueScore.text = "" + blueScoreNumber;
     }
 
     // Update is called once per frame
     void Update()
     {
-        blueScore.text = "Blue score = " + blueScoreNumber;
+        blueScore.text = "" + blueScoreNumber;
     }
 
     void OnCollisionEnter2D(Collision2D col)
