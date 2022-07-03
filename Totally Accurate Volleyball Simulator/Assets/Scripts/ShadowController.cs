@@ -9,6 +9,10 @@ public class ShadowController : MonoBehaviour
 
     public bool isPlayer1;
 
+    public bool isPlayer2;
+
+    public bool isBall;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,14 +23,17 @@ public class ShadowController : MonoBehaviour
             pos.x = player.transform.position.x + 0.25f;
             pos.y = player.transform.position.y - 1.25f;
         }
-        else
+        else if (isPlayer2)
         {
             pos.x = player.transform.position.x - 0.25f;
             pos.y = player.transform.position.y - 1.25f;
         }
-        
+        else if (isBall)
+        {
+            pos.x = player.transform.position.x;
+        }
 
-        transform.position = pos;
+            transform.position = pos;
     }
 
     // Update is called once per frame
@@ -38,9 +45,13 @@ public class ShadowController : MonoBehaviour
         {
             pos.x = player.transform.position.x + 0.25f;
         }
-        else
+        else if (isPlayer2)
         {
             pos.x = player.transform.position.x - 0.25f;
+        }
+        else if (isBall)
+        {
+            pos.x = player.transform.position.x;
         }
 
         transform.position = pos;

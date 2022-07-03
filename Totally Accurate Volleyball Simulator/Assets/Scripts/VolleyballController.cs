@@ -10,7 +10,7 @@ public class VolleyballController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //rb.AddTorque(5f, ForceMode2D.Force);
     }
 
     // Update is called once per frame
@@ -26,5 +26,17 @@ public class VolleyballController : MonoBehaviour
             rb.velocity = Vector3.ClampMagnitude(rb.velocity, MaxVelocity);
         }
             
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Player1")
+        {
+            rb.AddTorque(-2.5f, ForceMode2D.Force);
+        }
+        else if (col.gameObject.tag == "Player2")
+        {
+            rb.AddTorque(2.5f, ForceMode2D.Force);
+        }
     }
 }
